@@ -19,10 +19,8 @@ New contributors are welcome.
 Installation
 ------------
 
-Before installing Pygame, ensure Python and pip are installed on your machine. 
-If you haven't already installed Python, download and install Python 3 from the official website (https://www.python.org/downloads/). 
-Once Python is installed, open a command prompt (Windows) or a terminal 
-(MacOS or Linux) and verify Python's installation by running:
+Before installing Pygame, ensure Python and pip are installed on your machine. If you haven't already installed Python, download and install Python 3 from the official website (https://www.python.org/downloads/). Once Python is installed, open a command prompt (Windows) or a terminal (MacOS or Linux) and verify Python's installation by running:
+
 ::
 
    python --version
@@ -33,13 +31,15 @@ or
 
    python3 --version
 
-If Python is installed correctly, you'll see a message displaying the Python version.
+If Python is installed correctly, you'll see a message displaying the Python version like this. The actual version number may vary depending on your Python installation.
 
-Once Python is installed, you have to perform a final check: you have
-to see if pip is installed. Generally, pip is pre-installed with
-Python but we are never sure. Same as for Python, type the following
-command:
 ::
+  
+    Python 3.11.7
+
+Once Python is installed, you have to perform a final check: you have to see if pip is installed. Generally, pip is pre-installed with Python but we are never sure. Same as for Python, type the following command:
+
+:: 
 
    pip --version
 
@@ -49,13 +49,17 @@ or
 
    pip3 --version
 
-If pip is installed, you'll see a message displaying the pip version. 
+If pip is installed, you'll see a message displaying the pip version like this. The actual version number may vary depending on your Python installation.
+
+::
+
+    pip 23.3.1 from /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pip (python 3.11)
+
+
 If pip is not installed, you can install it manually by following these steps:
 
-1. Windows: Pip usually comes bundled with Python installations on Windows. 
-If it's missing, you can download ``get-pip.py`` from https://bootstrap.pypa.io/get-pip.py
-and run it using Python. Open a command prompt and navigate to the directory containing 
-``get-pip.py``, then run:
+1. Windows: Pip usually comes bundled with Python installations on Windows. If it's missing, you can download `get-pip.py` from https://bootstrap.pypa.io/get-pip.py and run it using Python. Open a command prompt and navigate to the directory containing `get-pip.py`, then run:
+
 ::
 
    python get-pip.py
@@ -66,8 +70,8 @@ or
 
    python3 get-pip.py
 
-2. MacOS and Linux: On MacOS and Linux systems, you can install pip using the ``ensurepip`` module,
-which is included with Python. Open a terminal and run:
+2. MacOS and Linux: On MacOS and Linux systems, you can install pip using the `ensurepip` module, which is included with Python. Open a terminal and run:
+
 ::
 
    python -m ensurepip --default-pip
@@ -79,6 +83,7 @@ or
    python3 -m ensurepip --default-pip
 
 Once pip is installed, you can proceed to install Pygame by running:
+
 ::
 
    python -m pip install pygame
@@ -89,14 +94,14 @@ or
 
    python3 -m pip install pygame
 
-This command will download and install Pygame and its dependencies. 
-After installation, you can verify the Pygame installation by importing 
-it in a Python script:
+This command will download and install Pygame and its dependencies. After installation, you can verify the Pygame installation by importing it in a Python script:
+
 ::
 
    import pygame
 
 If no errors occur, Pygame is successfully installed on your system.
+
 
 
 Help
