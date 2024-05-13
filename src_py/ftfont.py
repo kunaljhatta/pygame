@@ -17,7 +17,6 @@ from pygame._freetype import _internal_mod_init
 from pygame.sysfont import match_font, get_fonts, SysFont as _SysFont
 from pygame import encode_file_path
 
-
 class Font(_Font):
     """Font(filename, size) -> Font
     Font(object, size) -> Font
@@ -29,10 +28,12 @@ class Font(_Font):
 
     __encode_file_path = staticmethod(encode_file_path)
     __get_default_resolution = staticmethod(get_default_resolution)
-    __default_font = encode_file_path(get_default_font())
+    __default_font = get_default_font()
 
     __unull = "\x00"
     __bnull = b"\x00"
+
+    DEFAULT_RESOLUTION_FACTOR = 0.6875  
 
     def __init__(self, file=None, size=-1):
         size = max(size, 1)
@@ -46,7 +47,7 @@ class Font(_Font):
         if isinstance(bfile, bytes) and bfile == self.__default_font:
             file = None
         if file is None:
-            resolution = int(self.__get_default_resolution() * 0.6875)
+            resolution = int(self.__get_default_resolution() * self.DEFAULT_RESOLUTION_FACTOR)
             if resolution == 0:
                 resolution = 1
         else:
@@ -65,10 +66,6 @@ class Font(_Font):
 
         if text is None:
             text = ""
-        if isinstance(text, str) and self.__unull in text:
-            raise ValueError("A null character was found in the text")
-        if isinstance(text, bytes) and self.__bnull in text:
-            raise ValueError("A null character was found in the text")
         save_antialiased = (
             self.antialiased  # pylint: disable = access-member-before-definition
         )
