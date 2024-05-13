@@ -281,10 +281,30 @@ class CursorsModuleTest(unittest.TestCase):
         self.assertEqual(c4.data, ((24, 24), (0, 0), xormask, andmask))
         self.assertEqual(c4.type, "bitmap")
 
+    def test_cursor_equality(self):
+        """Ensure that the cursor object parses information properly"""
 
-################################################################################
+        # Test equality between two Cursor instances with the same data
+        cursor1 = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
+        cursor2 = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
+        self.assertEqual(cursor1, cursor2)
+
+        # Test inequality between two Cursor instances with different data
+        cursor3 = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
+        cursor4 = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_CROSSHAIR)
+        self.assertNotEqual(cursor3, cursor4)
+
+        # Test equality between Cursor instances created with the same data
+        xormask, andmask = pygame.cursors.compile(pygame.cursors.thickarrow_strings)
+        cursor5 = pygame.cursors.Cursor((24, 24), (0, 0), xormask, andmask)
+        cursor6 = pygame.cursors.Cursor((24, 24), (0, 0), xormask, andmask)
+        self.assertEqual(cursor5, cursor6)
+
+        # Test inequality between Cursor instances created with different data
+        cursor7 = pygame.cursors.Cursor((24, 24), (0, 0), xormask, andmask)
+        cursor8 = pygame.cursors.Cursor((16, 16), (0, 0), xormask, andmask)
+        self.assertNotEqual(cursor7, cursor8)
+
 
 if __name__ == "__main__":
     unittest.main()
-
-################################################################################
